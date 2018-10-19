@@ -1,5 +1,5 @@
-import news from "./news/actions";
+import * as news from "./news";
 
 export default {
-  news
+  ...news
 };

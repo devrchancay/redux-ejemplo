@@ -1,4 +1,4 @@
-import { LOADING } from "../actions/news";
+import { LOADING } from "../actions/news/actions";
 
 const news = (state = {}, action) => {
   switch (action.type) {

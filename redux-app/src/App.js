@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import actionCreators from "./actions/actionsCreator";
+import { bindActionCreators } from "redux";
 
 class App extends Component {
+  appLoading() {
+    const { loading } = this.props.news;
+    this.props.loading(!loading);
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <pre>{JSON.stringify(this.props, null, 2)}</pre>
+        <div>
+          <button onClick={this.appLoading.bind(this)}>Loading</button>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  news: state.news
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(actionCreators, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

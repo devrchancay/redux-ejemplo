@@ -1,4 +1,4 @@
-import { LOADING, FILL_NEWS, RECEIVED_NEWS, DELETE_NEWS } from "./index";
+import { LOADING, FILL_NEWS, RECEIVED_NEWS, DELETE_NEWS } from "./actions";
 
 export const loading = (status = true) => ({
   type: LOADING,
