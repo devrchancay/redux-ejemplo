@@ -1,4 +1,10 @@
-import { LOADING, FILL_NEWS, RECEIVED_NEWS, DELETE_NEWS } from "./actions";
+import {
+  LOADING,
+  FILL_NEWS,
+  RECEIVED_NEWS,
+  DELETE_NEWS,
+  ADD_NEWS
+} from "./actions";
 
 export const loading = (status = true) => ({
   type: LOADING,
@@ -18,4 +24,9 @@ export const receivedNews = news => ({
 export const deleteNews = id => ({
   type: DELETE_NEWS,
   id
+});
+
+export const addNews = news => ({
+  type: ADD_NEWS,
+  news
 });
